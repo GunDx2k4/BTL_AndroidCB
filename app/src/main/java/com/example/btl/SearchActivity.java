@@ -41,20 +41,8 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intentct = new Intent(SearchActivity.this, ChiTietMonAnActivity.class);
-                //Lấy dữ liệu
-                String cttenmon = mylist.get(position).getTenMonAn().toString();
-                String ctcongthuc = mylist.get(position).getCongThuc().toString();
-                byte[] ctanh = mylist.get(position).getImage();
-                String ctuser=mylist.get(position).getUser().toString();
-                //Trước khi đưa vào intent chúng ta đóng gói dữ liệu vào bundle
-                Bundle mybundle = new Bundle();
-                //Đưa dũ liệu vào bundle
-                mybundle.putString("tenmonan", cttenmon);
-                mybundle.putString("congthuc", ctcongthuc);
-                mybundle.putByteArray("anh", ctanh);
-                mybundle.putString("user",ctuser);
-                //Đưa bundle vào intent
-                intentct.putExtra("package", mybundle);
+
+                intentct.putExtra("id", mylist.get(position).getID());
                 //Khởi động intent
                 startActivity(intentct);
 
@@ -62,9 +50,10 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-    private  void readData(){
-        mylist = DB.getAllData();
+    private  void readData() {
         myAdapterMonAn.notifyDataSetChanged();
+        mylist.clear();
+        mylist.addAll(DB.getAllData());
     }
 
     @Override
@@ -79,7 +68,7 @@ public class SearchActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //myAdapterMonAn.getFilter().filter(query);
+                myAdapterMonAn.getFilter().filter(query);
                 return false;
             }
             @Override

@@ -161,6 +161,8 @@ public class AddMonAnActivity extends AppCompatActivity {
         if (DB.insertData(new MonAn(ten, cthuc, hinh, user, typeMonAn))) {
             Toast.makeText(AddMonAnActivity.this, "Thêm Thành Công", Toast.LENGTH_SHORT).show();
             Intent intentdangxuat=new Intent(AddMonAnActivity.this,TrangChuActivity.class);
+            String name=intent.getStringExtra("username");
+            intentdangxuat.putExtra("username",name);
             startActivity(intentdangxuat);
         }
 

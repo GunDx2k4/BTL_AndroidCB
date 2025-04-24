@@ -37,20 +37,8 @@ public class BaiDangActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intentct = new Intent(BaiDangActivity.this, ChiTietMonAnActivity.class);
-                //Lấy dữ liệu
-                String cttenmon = mylist.get(position).getTenMonAn().toString();
-                String ctcongthuc = mylist.get(position).getCongThuc().toString();
-                String ctuser = mylist.get(position).getUser().toString();
-                byte[] ctanh = mylist.get(position).getImage();
-                //Trước khi đưa vào intent chúng ta đóng gói dữ liệu vào bundle
-                Bundle mybundle = new Bundle();
-                //Đưa dũ liệu vào bundle
-                mybundle.putString("tenmonan", cttenmon);
-                mybundle.putString("congthuc", ctcongthuc);
-                mybundle.putString("user", ctuser);
-                mybundle.putByteArray("anh", ctanh);
                 //Đưa bundle vào intent
-                intentct.putExtra("package", mybundle);
+                intentct.putExtra("id", mylist.get(position).getID());
                 //Khởi động intent
                 startActivity(intentct);
 
@@ -58,8 +46,9 @@ public class BaiDangActivity extends AppCompatActivity {
         });
     }
     private  void readData(){
+        var intent = getIntent();
         mylist.clear();
-        mylist.addAll(DB.getAllData());
+        mylist.addAll(DB.getData(intent.getStringExtra("username")));
         myAdapterMonAn.notifyDataSetChanged();
     }
 }

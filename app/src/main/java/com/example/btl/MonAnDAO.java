@@ -17,6 +17,53 @@ public class MonAnDAO {
         database = dbHelper.getWritableDatabase();
     }
 
+    public MonAn getMonAnById(int id) {
+        MonAn monAn = null;
+        Cursor cursor = database.query(DBHelperMonAn.TABLE_MON_AN,
+                null,
+                DBHelperMonAn.COLUMN_ID+ "=?",
+                new String[]{String.valueOf(id)},
+                null, null, null);
+
+        if (cursor.moveToFirst()) {
+            monAn = new MonAn(
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_NAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_CONG_THUC)),
+                    cursor.getBlob(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_ANH)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_USER)),
+                    TypeMonAn.getTypeByValue(cursor.getInt(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_TYPE)))
+            );
+        }
+        cursor.close();
+        return monAn;
+    }
+
+    public ArrayList<MonAn> getData(String user) {
+        ArrayList<MonAn> list = new ArrayList<>();
+        Cursor cursor = database.query(DBHelperMonAn.TABLE_MON_AN, null,
+                DBHelperMonAn.COLUMN_USER + " = ?",
+                new String[]{ user }
+                , null,
+                null,
+                "tenMonAn ASC");
+        if (cursor.moveToFirst()) {
+            do {
+                MonAn monAn = new MonAn(
+                        cursor.getInt(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_NAME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_CONG_THUC)),
+                        cursor.getBlob(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_ANH)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_USER)),
+                        TypeMonAn.getTypeByValue(cursor.getInt(cursor.getColumnIndexOrThrow(DBHelperMonAn.COLUMN_TYPE)))
+                );
+                list.add(monAn);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return list;
+    }
+
     public ArrayList<MonAn> getAllData() {
         ArrayList<MonAn> list = new ArrayList<>();
         Cursor cursor = database.query(DBHelperMonAn.TABLE_MON_AN, null, null, null, null, null, "tenMonAn ASC");

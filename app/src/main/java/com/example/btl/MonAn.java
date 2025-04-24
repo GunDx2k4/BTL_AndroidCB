@@ -1,12 +1,12 @@
 package com.example.btl;
 
 public class MonAn {
-    int ID;
-    byte[] image;
-    String tenMonAn;
-    String congThuc;
-    String user;
-    TypeMonAn type;
+    private int ID;
+    private byte[] image;
+    private String tenMonAn;
+    private String congThuc;
+    private String user;
+    private TypeMonAn type;
 
     public TypeMonAn getType() {
         return type;

@@ -36,4 +36,11 @@
     <string name="ban_da_chon">Bạn Đã Chọn</string>
     <string name="bai_dang_cua_toi">Bài Đăng Của Tôi</string>
     <string name="them_cong_thuc_vao_thuc_don_hang_ngay">Thêm công thức vào thực đơn</string>
+    <string name="cap_nhat">Cập nhật</string>
+    <string name="nhap_vao_cong_thuc_nau_an">Nhập vào công thức nấu ăn</string>
+    <string name="cong_thuc">Công Thức</string>
+    <string name="cong_thuc_yeu_thich">Công thức yêu thích</string>
+    <string name="xoa">Xóa</string>
+    <string name="sua">Sửa</string>
+    <string name="hinh_anh_mon_an">Hình Ảnh Món Ăn</string>
 </resources>

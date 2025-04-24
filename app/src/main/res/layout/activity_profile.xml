@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorPrimaryVariant"
+    android:padding="16dp"
     tools:context=".ProfileActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -33,52 +34,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>
+
     <Button
         android:id="@+id/btnthemmon"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/them_mon_an"
         android:backgroundTint="@color/white"
         android:background="@drawable/custombutton"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="30dp" />
 
     <Button
         android:id="@+id/btnbaidang"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bai_viet_cua_toi"
         android:background="@drawable/custombutton"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/btnthemmon"/>
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnbookmarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cong_thuc_yeu_thich"
+        android:background="@drawable/custombutton"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
     <Button
         android:id="@+id/btnbacktc"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/back"
         android:background="@drawable/custombutton"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/btnthemmon"/>
+        android:layout_marginTop="20dp"/>
     <Button
         android:id="@+id/btndangxuat"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sign_out"
         android:background="@drawable/custombutton"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/btnbacktc"/>
+        android:layout_marginTop="20dp"/>
 </LinearLayout>

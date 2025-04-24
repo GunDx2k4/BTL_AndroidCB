@@ -63,31 +63,56 @@ public class MyAdapterMonAn extends BaseAdapter implements Filterable{
         }
 
         btn = convertView.findViewById(R.id.btn);
+        Button btnEdit = convertView.findViewById(R.id.btn_edit);
         if (context instanceof BaiDangActivity) {
-            btn.setText("Xóa");
+            btnEdit.setVisibility(View.VISIBLE);
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MonAn myMonAn = mylist.get(position);
+                    Intent intent = new Intent(context, EditMonAnActivity.class);
+                    // Pass ID as well
+                    intent.putExtra("id", myMonAn.getID());
+                    var intent2 = ((BaiDangActivity) context).getIntent();
+                    String name= intent2.getStringExtra("username");
+                    intent.putExtra("username",name);
+                    context.startActivity(intent);
+                }
+            });
+            //Xóa món ăn
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MonAn myMonAn=mylist.get(position);
+                    MonAn myMonAn = mylist.get(position);
                     DB.deleteData(myMonAn);
+
+                    var bookmarkDB = new BookmarkDAO(context);
+                    bookmarkDB.removeBookmark(myMonAn.getID());
+
                     Toast.makeText(context, "Xóa món ăn thành công", Toast.LENGTH_SHORT).show();
-                    Intent intentdangxuat=new Intent(context,TrangChuActivity.class);
+                    Intent intentdangxuat = new Intent(context, TrangChuActivity.class);
+                    var intent = ((BaiDangActivity) context).getIntent();
+                    String name= intent.getStringExtra("username");
+                    intentdangxuat.putExtra("username",name);
                     context.startActivity(intentdangxuat);
                 }
             });
         }
-        else if (context instanceof TrangChuActivity) {
+        else {
+            btnEdit.setVisibility(View.GONE);
             btn.setVisibility(View.GONE);
         }
 
         MonAn myMonAn=mylist.get(position);
         ImageView img_monan=convertView.findViewById(R.id.anhmonan);
-        Bitmap hinh= BitmapFactory.decodeByteArray(myMonAn.image,0,myMonAn.image.length);
+        Bitmap hinh= BitmapFactory.decodeByteArray(myMonAn.getImage(),0,myMonAn.getImage().length);
         img_monan.setImageBitmap(hinh);
         TextView txt_tenmonan=convertView.findViewById(R.id.txttenmon);
-        txt_tenmonan.setText(myMonAn.tenMonAn);
+        txt_tenmonan.setText(myMonAn.getTenMonAn());
         TextView txt_user=convertView.findViewById(R.id.txtuser);
-        txt_user.setText(myMonAn.user);
+        txt_user.setText(myMonAn.getUser());
+        TextView txt_type =convertView.findViewById(R.id.txttype);
+        txt_type.setText(myMonAn.getType().toString());
         return convertView;
     }
 

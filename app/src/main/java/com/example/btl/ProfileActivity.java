@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class ProfileActivity extends AppCompatActivity {
     ImageView anh;
     TextView username;
-    Button themmon,dangxuat,baidang, back;
+    Button themmon, dangxuat, baidang, back, bookmarks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         dangxuat=findViewById(R.id.btndangxuat);
         baidang=findViewById(R.id.btnbaidang);
         back=findViewById(R.id.btnbacktc);
+        bookmarks=findViewById(R.id.btnbookmarks);
         themmon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,14 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intentb=new Intent(ProfileActivity.this,TrangChuActivity.class);
                 intentb.putExtra("username",username.getText().toString());
                 startActivity(intentb);
+            }
+        });
+        bookmarks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookmarks = new Intent(ProfileActivity.this, BookmarkActivity.class);
+                intentBookmarks.putExtra("username", username.getText().toString());
+                startActivity(intentBookmarks);
             }
         });
     }

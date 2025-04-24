@@ -43,30 +43,21 @@ public class TrangChuActivity extends AppCompatActivity {
         myAdapterMonAn=new MyAdapterMonAn(TrangChuActivity.this,R.layout.layout_item,mylist);
         listView.setAdapter(myAdapterMonAn);
     }
-    private  void sukien(){
+    private void sukien() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intentct=new Intent(TrangChuActivity.this,ChiTietMonAnActivity.class);
-                //Lấy dữ liệu
-                String cttenmon=mylist.get(position).getTenMonAn().toString();
-                String ctcongthuc=mylist.get(position).getCongThuc().toString();
-                String ctuser=mylist.get(position).getUser().toString();
-                byte[] ctanh= mylist.get(position).getImage();
-                int typeMonAn = mylist.get(position).getType().getValue();
-                //Trước khi đưa vào intent chúng ta đóng gói dữ liệu vào bundle
-                Bundle mybundle=new Bundle();
-                //Đưa dũ liệu vào bundle
-                mybundle.putString("tenmonan",cttenmon);
-                mybundle.putString("congthuc",ctcongthuc);
-                mybundle.putString("user",ctuser);
-                mybundle.putByteArray("anh",ctanh);
-                mybundle.putInt("type",typeMonAn);
-                //Đưa bundle vào intent
-                intentct.putExtra("package",mybundle);
-                //Khởi động intent
-                startActivity(intentct);
+                Intent intentct = new Intent(TrangChuActivity.this, ChiTietMonAnActivity.class);
+                int monanId = mylist.get(position).getID();
 
+                intentct.putExtra("id", monanId);
+
+                Intent intent = getIntent();
+                String username = intent.getStringExtra("username");
+                intentct.putExtra("username", username);
+
+                // Khởi động intent
+                startActivity(intentct);
             }
         });
         btnprofile.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +80,16 @@ public class TrangChuActivity extends AppCompatActivity {
         });
     }
     private  void readData(){
+        myAdapterMonAn.notifyDataSetChanged();
         mylist.clear();
         mylist.addAll(DB.getAllData());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         myAdapterMonAn.notifyDataSetChanged();
+        mylist.clear();
+        mylist.addAll(DB.getAllData());
     }
 }
