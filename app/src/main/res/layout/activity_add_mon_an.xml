@@ -1,153 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
     tools:context=".AddMonAnActivity">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="120dp"
-            android:layout_height="160dp"
-            android:layout_marginStart="30dp"
-            app:srcCompat="@drawable/photo" />
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/chuphinh"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"
-                android:text="@string/chup_hinh"/>
-            <Button
-                android:id="@+id/chonhinh"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="30dp"
+                app:srcCompat="@drawable/photo" />
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/chon_hinh"/>
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/chuphinh"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chup_hinh"/>
+                <Button
+                    android:id="@+id/chonhinh"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chon_hinh"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ten_mon_an"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="?attr/colorOnBackground"/>
-    <EditText
-        android:id="@+id/ten"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F5F5F5"
-        android:textColor="@color/black"
-        android:hint="@string/nhap_ten_mon_an"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cong_thuc_mon_an"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="?attr/colorOnBackground"/>
-    <EditText
-        android:id="@+id/congthuc"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F5F5F5"
-        android:textColor="@color/black"
-        android:textStyle="normal"
-        android:hint="@string/nhap_cong_thuc_mon_an"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/loai_mon_an"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="?attr/colorOnBackground"/>
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/radioMonAnSang"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/an_sang"
-            android:checked="true" />
-
-        <RadioButton
-            android:id="@+id/radioMonAnTrua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/an_trua" />
-
-        <RadioButton
-            android:id="@+id/radioMonAnToi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/an_toi" />
-
-        <RadioButton
-            android:id="@+id/radioMonAnPhu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/an_phu" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnluu"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/luu"
-            android:textColor="@color/white"
+            android:text="@string/ten_mon_an"
+            android:layout_marginTop="30dp"
             android:textStyle="bold"
-            android:layout_marginTop="50dp"
-
-            android:backgroundTint="#00CC33"
-            android:background="@drawable/custombutton" />
-        <Button
-            android:id="@+id/btnhuy"
-            android:layout_width="400dp"
+            android:textSize="20sp"
+            android:textColor="?attr/colorOnBackground"/>
+        <EditText
+            android:id="@+id/ten"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#F5F5F5"
+            android:textColor="@color/black"
+            android:hint="@string/nhap_ten_mon_an"/>
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/huy"
+            android:text="@string/cong_thuc_mon_an"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="?attr/colorOnBackground"/>
+        <EditText
+            android:id="@+id/congthuc"
+            android:layout_width="match_parent"
+            android:minHeight="40dp"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:hint="@string/nhap_cong_thuc_mon_an"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loai_mon_an"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="?attr/colorOnBackground"/>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radioMonAnSang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/an_sang"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioMonAnTrua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/an_trua" />
+
+            <RadioButton
+                android:id="@+id/radioMonAnToi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/an_toi" />
+
+            <RadioButton
+                android:id="@+id/radioMonAnPhu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/an_phu" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnluu"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/luu"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="50dp"
+
+                android:backgroundTint="#00CC33"
+                android:background="@drawable/custombutton" />
+            <Button
+                android:id="@+id/btnhuy"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/huy"
+                android:textColor="@color/white"
+                android:background="@drawable/custombutton"
+                android:textStyle="bold"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="20dp"
+                android:backgroundTint="#00CC33" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnbackpf"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
             android:textColor="@color/white"
             android:background="@drawable/custombutton"
             android:textStyle="bold"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#00CC33" />
     </LinearLayout>
-    <Button
-        android:id="@+id/btnbackpf"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        android:textColor="@color/white"
-        android:background="@drawable/custombutton"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#00CC33" />
-</LinearLayout>
+
+</ScrollView>

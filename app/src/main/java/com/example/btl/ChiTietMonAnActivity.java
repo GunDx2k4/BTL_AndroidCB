@@ -68,7 +68,7 @@ public class ChiTietMonAnActivity extends AppCompatActivity {
         // Lấy dữ liệu khỏi bundle
         String ten = monAn.getTenMonAn();
         String ct = monAn.getCongThuc();
-        String nguoitao = monAn.getTenMonAn();
+        String nguoitao = monAn.getUser();
         byte[] hinh = monAn.getImage();
 
         tenmonan.setText(ten);
